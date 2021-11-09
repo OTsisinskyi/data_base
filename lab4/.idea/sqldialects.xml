@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/src/main/java/com/tsisinskyi/Application.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/tsisinskyi/DAO/impl/ChainDao.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/tsisinskyi/DAO/impl/CityDao.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/tsisinskyi/DAO/impl/EnterpriseDao.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/tsisinskyi/DAO/impl/ParkingDao.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/tsisinskyi/DAO/impl/ParkingReservationDao.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/tsisinskyi/DAO/impl/ParkingStoryDao.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/tsisinskyi/DAO/impl/UserCardDao.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/DataBase.sql" dialect="MySQL" />
+  </component>
+</project>
