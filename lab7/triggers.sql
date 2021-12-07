@@ -16,6 +16,10 @@ DROP TRIGGER IF EXISTS listdrugszoneinfluencejoin_UPDATE;
 DROP TRIGGER IF EXISTS listdrugszoneinfluencejoin_DELETE;
 DROP TRIGGER IF EXISTS zoneinfluencelistdrugsjoin_DELETE;
 
+DROP TRIGGER IF EXISTS employee_passport_INSERT
+DROP TRIGGER IF EXISTS employee_name_INSERT
+DROP TRIGGER IF EXISTS street_block_DELETE
+
 DELIMITER //
 CREATE TRIGGER employee_INSERT 
 	BEFORE INSERT 
@@ -219,6 +223,42 @@ BEGIN
 	END IF;
 END //
 DELIMITER ;
+
+DELIMITER //
+CREATE TRIGGER employee_passport_INSERT 
+	BEFORE INSERT 
+	ON employee FOR EACH ROW 
+BEGIN
+	IF (new.passport NOT RLIKE '[0-9]{2}-[0-9]{6}')
+      	THEN SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = "Wrong input format, should be '## - ######'";
+    END IF ;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE TRIGGER employee_name_INSERT 
+	BEFORE INSERT 
+	ON employee FOR EACH ROW 
+BEGIN
+	IF (new.name not in ('Василь', 'Іван', 'Галина','Олександра'))
+		THEN SIGNAL SQLSTATE '45000'
+		SET MESSAGE_TEXT = 'This name is not allowed';
+    END IF;
+END //
+DELIMITER ;
+
+DELIMITER //
+CREATE TRIGGER street_block_DELETE 
+	BEFORE DELETE 
+	ON employee FOR EACH ROW 
+BEGIN
+	SIGNAL SQLSTATE '45000'
+	SET MESSAGE_TEXT = 'Removal is prohibited!';
+END //
+DELIMITER ;
+
+
 
 
 
